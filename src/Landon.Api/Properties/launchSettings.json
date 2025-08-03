@@ -5,7 +5,8 @@
     "anonymousAuthentication": true, 
     "iisExpress": {
       "applicationUrl": "http://localhost:7112",
-      "sslPort": 44308
+      // ASP.NET Core 2.0 and beyond enable HTTPS by default, so look for sslPort property for cURL, Fiddler and Postman.
+      "sslPort": 44308 // When the project was created, it randomly was assigned a port that we can find under launchSetting.json.
     }
   },
   "profiles": {
