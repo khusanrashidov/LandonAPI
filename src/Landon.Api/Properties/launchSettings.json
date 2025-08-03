@@ -11,10 +11,10 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchBrowser": false, // Change to true if you want to launch browser everytime you compile and run the code.
+      "launchUrl": "api/values", // Launch URL is where you will be (re)directed when the browser gets launched.
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development" // For env.IsDevelopment().
       }
     },
     "Landon.Api": {
@@ -23,7 +23,7 @@
       "launchUrl": "api/values",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development" // For env.IsDevelopment().
       }
     }
   }

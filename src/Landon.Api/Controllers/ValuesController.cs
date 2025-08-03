@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Landon.Api.Controllers
 {
@@ -14,6 +11,7 @@ namespace Landon.Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            double[] arr = new double[0] { };
             return new string[] { "value1", "value2" };
         }
 
