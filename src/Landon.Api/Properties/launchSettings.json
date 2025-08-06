@@ -12,8 +12,8 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": false, // Change to true if you want to launch browser everytime you compile and run the code.
-      "launchUrl": "api/values", // Launch URL is where you will be (re)directed when the browser gets launched.
+      "launchBrowser": true, // Change to false if you don't want to launch browser everytime you compile and run the code.
+      "launchUrl": "swagger", // Launch URL is where you will be (re)directed when the browser gets launched. Launch using IIS Express option under the VS launch play button dropdown.
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development" // For env.IsDevelopment().
       }
@@ -21,8 +21,18 @@
     "Landon.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "swagger", // Launch URL is now pointing to Swagger. Launch using Landon.Api option under the VS launch play button dropdown.
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development" // For env.IsDevelopment().
+      }
+    },
+    // You can add extra profiles that will appear in the VS launch play button dropdown.
+    "K8": {
+      "commandName": "K8", // Error: value must be one of the debug targets: "Executable", "Project", "IIS", "IISExpress", "DebugRoslynComponent", "Docker", "DockerCompose", "MsixPackage", "SdkContainer", "WSL2".
+      "launchBrowser": true,
+      "launchUrl": "swagger", // Launch URL is now pointing to Swagger. Launch using Landon.Api option under the VS launch play button dropdown.
+      "applicationUrl": "https://localhost:8000;http://localhost:8080",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development" // For env.IsDevelopment().
       }

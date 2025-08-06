@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.3.0" />
+    <PackageReference Include="NSwag.AspNetCore" Version="14.5.0" />
   </ItemGroup>
 
 </Project>
