@@ -27,6 +27,26 @@
         "ASPNETCORE_ENVIRONMENT": "Development" // For env.IsDevelopment().
       }
     },
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
     // You can add extra profiles that will appear in the VS launch play button dropdown.
     "K8": {
       "commandName": "K8", // Error: value must be one of the debug targets: "Executable", "Project", "IIS", "IISExpress", "DebugRoslynComponent", "Docker", "DockerCompose", "MsixPackage", "SdkContainer", "WSL2".

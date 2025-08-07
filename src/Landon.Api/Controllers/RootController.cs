@@ -8,6 +8,7 @@ namespace Landon.Api.Controllers
     public class RootController : ControllerBase // Controller inherits from ControllerBase and allows us to return views and allows us to use razor/blazor features.
     {
         [HttpGet(Name = nameof(GetRoot))] // Marks the endpoint, action method, to support and handle only an incoming HTTP GET verb method request.
+        [ProducesResponseType(200)] // Define the response type for OpenAPI Spec.
         public IActionResult GetRoot() // Returning IActionResult as responses from endpoint HTTP verb method gives flexibility to return HTTP status code and/or JSON to requests.
         {
             var response = new

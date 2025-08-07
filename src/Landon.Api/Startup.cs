@@ -20,7 +20,12 @@ namespace Landon.Api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1); // Adding services needed for MVC for routing and controller logic for ASP.NET Core.
             services.AddRouting(options => options.LowercaseUrls = true); // To avoid routing middleware from rendering controller names in Pascal case.
-            services.AddOpenApiDocument(); // Add OpenAPI generator to the services collection. For OpenAPI = Swagger = SwaggerUI.
+            services.AddOpenApiDocument(options =>
+            {
+                options.Title = "Landon API";
+                options.Version = "K8";
+                options.DocumentName = "Landon";
+            }); // Add OpenAPI generator to the services collection. For OpenAPI = Swagger = SwaggerUI.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline middleware.
@@ -30,7 +35,7 @@ namespace Landon.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseOpenApi(); // Add OpenAPI 3.0 document serving middleware. Available at: http://localhost:<port>/swagger/v1/swagger.json. Requires AddOpenApiDocument() method added to the service collection.
-                app.UseSwaggerUi(options => options.CustomHeadContent = "Landon API"); // Add Swagger UI to interact with the document. Available at: http://localhost:<port>/swagger. Demands UseOpenApi() method registered to the request middleware pipeline.
+                app.UseSwaggerUi(options => { options.DocumentTitle = "Landon API Swagger"; }); // Add Swagger UI to interact with the document. Available at: http://localhost:<port>/swagger. Demands UseOpenApi() method registered to the request middleware pipeline.
             }
             else
             {
