@@ -7,11 +7,11 @@ namespace Landon.Api.Filters
 {
     public class JsonExceptionFilter : IExceptionFilter // A filter that runs after an action has thrown an System.Exception.
     {
-        private readonly IHostingEnvironment env;
+        private readonly IHostingEnvironment env; // Or: _env;.
 
         public JsonExceptionFilter(IHostingEnvironment env)
         {
-            this.env = env;
+            this.env = env; // Or: _env = env;.
         }
 
         public void OnException(ExceptionContext context)
