@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Landon.Api.Filters;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
@@ -19,7 +20,9 @@ namespace Landon.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) // The order does not matter.
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1); // Adding services needed for MVC for routing and controller logic for ASP.NET Core.
+            services
+                .AddMvc(options => options.Filters.Add<JsonExceptionFilter>()) // Adding our custom exception filter to ASP.NET.
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1); // Adding services needed for MVC for routing and controller logic for ASP.NET Core.
             services.AddRouting(options => options.LowercaseUrls = true); // To avoid routing middleware from rendering controller names in Pascal case.
             services.AddOpenApiDocument(options =>
             {
