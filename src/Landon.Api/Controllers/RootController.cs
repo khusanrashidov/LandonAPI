@@ -4,6 +4,7 @@ namespace Landon.Api.Controllers
 {
     [Route("/")] // Slash or root route.
     [ApiController] // To explicitly tell ASP.NET Core that the controller is built and meant for an API, and to opt in to for features like automatic model validation.
+    [ApiVersion("1.0")] // Same as the DefaultApiVersion = new ApiVersion(1, 0). The attribute comes from Microsoft.AspNetCore.Mvc.Versioning.
     // Root controller that will server as the starting point for the API.
     public class RootController : ControllerBase // Controller inherits from ControllerBase and allows us to return views and allows us to use razor/blazor features.
     {

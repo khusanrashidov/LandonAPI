@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,6 +27,14 @@ namespace Landon.Api
                 options.Version = "K8";
                 options.DocumentName = "Landon";
             }); // Add OpenAPI generator to the services collection. For OpenAPI = Swagger = SwaggerUI.
+            services.AddApiVersioning(options =>
+            {
+                options.DefaultApiVersion = new ApiVersion(1, 0); // 1 is the major version, 0 is the minor version. Same as the [ApiVersion("1.0")] in the RootController class.
+                options.ApiVersionReader = new MediaTypeApiVersionReader(); // To read from Content Type aka Media Type.
+                options.AssumeDefaultVersionWhenUnspecified = true; // Assume early defined DefaultApiVerion 1.0 if the version is not specified.
+                options.ReportApiVersions = true; // To get the API version information on the responses.
+                options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(options); // Pass the current options instance as the implementation of the ApiVersionSelector.
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline middleware.
